@@ -177,25 +177,25 @@
                     </ul>
                     <div id="step-1">
                       <br /><br />
-                      <form class="form-horizontal form-label-left">
+                      <form class="form-horizontal form-label-left" id="form-wizard" action="insert.php" method="post">
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name<!--<span class="required">*</span>-->
                           </label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="first-name" required="required" class="form-control  ">
+                            <input type="text" id="name" required="required" class="form-control  ">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Product Vision<!--<span class="required">*</span>-->
                           </label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="last-name" name="last-name" required="required" class="form-control ">
+                            <input type="text" id="vision" name="last-name" required="required" class="form-control ">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">Goal</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
+                            <div id="goal" class="btn-group" data-toggle="buttons">
                               <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
                                 <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Increase &nbsp;
                               </label>
@@ -206,25 +206,21 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-form-label col-md-3 col-sm-3 label-align">Unit
-                            <!--<span class="required">*</span>-->
-                          </label>
+                          <label class="col-form-label col-md-3 col-sm-3 label-align">Unit<!--<span class="required">*</span>--></label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="unit" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-form-label col-md-3 col-sm-3 label-align">From<!--<span class="required">*</span>-->
-                          </label>
+                          <label class="col-form-label col-md-3 col-sm-3 label-align">From<!--<span class="required">*</span>--></label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="wigfrom" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-form-label col-md-3 col-sm-3 label-align">To<!--<span class="required">*</span>-->
-                          </label>
+                          <label class="col-form-label col-md-3 col-sm-3 label-align">To<!--<span class="required">*</span>--></label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="wigto" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -232,7 +228,8 @@
                           <div class="col-md-3">
                             <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
                               <div class="calendar left single" style="display: block;">
-                                <div class="daterangepicker_input"><input class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
+                                <div class="daterangepicker_input">
+                                  <input id="bydate" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
                                     style="display: none;"></i>
                                   <div class="calendar-time" style="display: none;">
                                     <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
@@ -427,7 +424,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">Source</label>
                           <div class="col-md-3 col-sm-3">
-                            <select class="form-control form-control-sm">
+                            <select id="data_source" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>Jira</option>
                               <option>Salesforce</option>
@@ -439,7 +436,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">Frequency</label>
                           <div class="col-md-3 col-sm-3">
-                            <select class="form-control form-control-sm">
+                            <select id="data_frequency" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>Daily</option>
                               <option>Weekly</option>
@@ -451,7 +448,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">Entry</label>
                           <div class="col-md-3 col-sm-3">
-                            <select class="form-control form-control-sm">
+                            <select id="data_entry" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>Manual</option>
                               <option>Automatic</option>
@@ -467,7 +464,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align ">Key Value Areas</label>
                           <div class="col-md-3 col-sm-3 ">
-                            <select class="form-control form-control-sm">
+                            <select id="select_kva" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>Customer Value</option>
                               <option>Product Quality</option>
@@ -480,7 +477,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align ">Key Performance Indicators</label>
                           <div class="col-md-3 col-sm-3 ">
-                            <select class="form-control form-control-sm">
+                            <select id="select_kpi" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>Customer Value</option>
                               <option>Product Quality</option>
@@ -492,7 +489,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">Goal</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
+                            <div id="kpi_goal" class="btn-group" data-toggle="buttons">
                               <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
                                 <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Increase &nbsp;
                               </label>
@@ -503,25 +500,23 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-form-label col-md-3 col-sm-3 label-align">Unit
-                            <!--<span class="required">*</span>-->
-                          </label>
+                          <label class="col-form-label col-md-3 col-sm-3 label-align">Unit<!--<span class="required">*</span>--></label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="kpi_unit" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">From<!--<span class="required">*</span>-->
                           </label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="kpi_from" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align">To<!--<span class="required">*</span>-->
                           </label>
                           <div class="col-md-3 col-sm-3">
-                            <input id="birthday" class="date-picker form-control" required="required" type="text">
+                            <input id="kpi_to" class="date-picker form-control" required="required" type="text">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -529,7 +524,7 @@
                           <div class="col-md-3">
                             <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
                               <div class="calendar left single" style="display: block;">
-                                <div class="daterangepicker_input"><input class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
+                                <div class="daterangepicker_input"><input id="kpi_date" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
                                     style="display: none;"></i>
                                   <div class="calendar-time" style="display: none;">
                                     <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
@@ -726,7 +721,7 @@
                           <div class="col-md-3">
                             <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
                               <div class="calendar left single" style="display: block;">
-                                <div class="daterangepicker_input"><input class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
+                                <div class="daterangepicker_input"><input id="sprint_start" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar"
                                     style="display: none;"></i>
                                   <div class="calendar-time" style="display: none;">
                                     <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
@@ -903,7 +898,7 @@
                               <div class="control-group">
                                 <div class="controls">
                                   <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="" aria-describedby="inputSuccess2Status4">
+                                    <input type="text" class="form-control has-feedback-left" id="sprint_start" placeholder="" aria-describedby="inputSuccess2Status4">
                                     <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                     <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                                   </div>
@@ -915,7 +910,7 @@
                         <div class="form-group row">
                           <label class="col-form-label col-md-3 col-sm-3 label-align ">Sprint Length</label>
                           <div class="col-md-3 col-sm-3 ">
-                            <select class="form-control form-control-sm">
+                            <select id="sprint_length" class="form-control form-control-sm">
                               <option>Choose option</option>
                               <option>One Week</option>
                               <option>Two Weeks</option>
@@ -930,7 +925,7 @@
                             <table class="table col-sm-6 offset-sm-3">
                               <thead>
                                 <tr class="headings">
-                                  <th class="column-title">Srint # </th>
+                                  <th class="column-title">Sprint # </th>
                                   <th class="column-title">End Date </th>
                                   <th class="column-title">Forecast </th>
                                   <th class="column-title">Actual </th>
@@ -944,9 +939,17 @@
                               <tbody>
                                 <tr class="even pointer">
                                   <th scope="row">1</th>
-                                  <td><input class="form-control form-control-sm" required="required" type="text"></td>
-                                  <td><input class="form-control form-control-sm" required="required" type="text"></td>
-                                  <td><input class="form-control form-control-sm" required="required" type="text"></td>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="03/13/20"></td>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1M"></td>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.3M"></td>
+                                  <td class=" last"><a href="#">Edit</a>
+                                  </td>
+                                </tr>
+                                <tr class="even pointer">
+                                  <th scope="row">1</th>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="03/27/20"></td>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.1M"></td>
+                                  <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.3M"></td>
                                   <td class=" last"><a href="#">Edit</a>
                                   </td>
                                 </tr>
